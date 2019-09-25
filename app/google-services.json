@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "771334772461",
+    "firebase_url": "https://l-ex-def4c.firebaseio.com",
+    "project_id": "l-ex-def4c",
+    "storage_bucket": "l-ex-def4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771334772461:android:d8ceed42398d089f",
+        "android_client_info": {
+          "package_name": "blockchain.example.lex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771334772461-422ltuk9lksm8100dmevud7q4246m46p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "blockchain.example.lex",
+            "certificate_hash": "d1af92d9ef550a26e91b2179cd1955b776bbfdf0"
+          }
+        },
+        {
+          "client_id": "771334772461-o4qi50iee8nr35d82bn444aovskd59b8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo7OcYGrdYXWydUTJF1B2lXIgEZ9dlo8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771334772461-o4qi50iee8nr35d82bn444aovskd59b8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
