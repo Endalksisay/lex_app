@@ -15,8 +15,6 @@
         android:layout_height="64dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-
-
         android:src="@drawable/log"
 
         />
@@ -31,7 +29,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:hint="Name "
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="19sp"
@@ -83,7 +81,6 @@
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_password_input"
-
         android:layout_marginLeft="15dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"

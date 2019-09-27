@@ -14,8 +14,6 @@
         android:layout_height="64dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-
-
         android:src="@drawable/log"
 
         />
@@ -47,7 +45,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="6dp"
         android:hint="Password"
-        android:inputType="number"
+        android:inputType="textPassword"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="17sp"
@@ -111,7 +109,7 @@
         android:id="@+id/admin_panel_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I'm an Admin?"
+        android:text="I'm an Admin"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/login_btn"
         android:textColor="@color/colorPrimaryDark"
@@ -125,7 +123,7 @@
         android:id="@+id/not_admin_panel_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I'm not an Admin?"
+        android:text="I'm not an Admin"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/login_btn"
         android:textColor="@color/colorPrimaryDark"
