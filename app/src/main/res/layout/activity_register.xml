@@ -14,7 +14,7 @@
         android:layout_width="57dp"
         android:layout_height="64dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="75dp"
         android:src="@drawable/log"
 
         />
@@ -34,6 +34,7 @@
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="19sp"
         android:textStyle="bold"
+        android:layout_marginTop="170dp"
 
         />
 
@@ -75,13 +76,31 @@
 
 
         />
+    <EditText
+        android:id="@+id/register_confirm_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_password_input"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="17sp"
+        android:textStyle="bold"
 
+
+        tools:ignore="UnknownId" />
     <Button
         android:id="@+id/register_btn"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_password_input"
-        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/register_confirm_password_input"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"

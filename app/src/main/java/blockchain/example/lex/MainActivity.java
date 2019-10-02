@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity
            startActivity(intent);
         }
     });
+
+
       joinNowButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view)
