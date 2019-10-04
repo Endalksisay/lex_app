@@ -17,10 +17,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.widget.CheckBox;
 
 import java.util.HashMap;
 
 import blockchain.example.lex.Model.Users;
+import blockchain.example.lex.Prevalent.Prevalent;
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity
         {
@@ -29,6 +32,8 @@ public class LoginActivity extends AppCompatActivity
         private ProgressDialog loadingBar;
 
         private String parentDbName = "Users";
+        private CheckBox chkBoxRememeberMe;
+
 
 
     @Override
@@ -41,6 +46,10 @@ public class LoginActivity extends AppCompatActivity
         InputPassword = (EditText) findViewById(R.id.login_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         loadingBar= new ProgressDialog(this);
+
+        chkBoxRememeberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
+        Paper.init(this);
+
 
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +92,18 @@ public class LoginActivity extends AppCompatActivity
 
     private void AllowAcceToAccount(final String phone, final String password)
     {
+        if (chkBoxRememeberMe.isChecked())
+
+
+
+        {
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
+            Paper.book().write(Prevalent.UserPasswordKey, password);
+
+        }
+
+
+
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
