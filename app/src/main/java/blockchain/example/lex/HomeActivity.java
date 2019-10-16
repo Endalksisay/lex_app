@@ -21,18 +21,51 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private double currentCurrency = 0;
+    private Button currencyButton;
+    private Button btn1;
+    private ArrayList<Button> companyButtons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        currencyButton = findViewById(R.id.currency_button);
+        String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
+        currencyButton.setText(btnSetText);
 
+        for (int i = 1; i <= 20; i++) {
+            LinearLayout linear = findViewById(R.id.companyButtonLayout);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            Button btn = new Button(this);
+            btn.setId(i);
+            final int id_ = btn.getId();
+            String btnText = "button " + id_;
+            btn.setText(btnText);
+            linear.addView(btn, params);
+            btn1 = (findViewById(id_));
+            btn1.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(),
+                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         toolbar.setTitle("Home");
