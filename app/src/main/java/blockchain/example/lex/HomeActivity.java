@@ -32,11 +32,6 @@ import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private double currentCurrency = 0;
-    private Button currencyButton;
-    private Button btn1;
-    private ArrayList<Button> companyButtons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
         currencyButton.setText(btnSetText);
 
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= 5; i++) {
             LinearLayout linear = findViewById(R.id.companyButtonLayout);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
