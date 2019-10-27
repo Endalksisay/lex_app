@@ -1,4 +1,4 @@
-package blockchain.example.lex.ui.share;
+package blockchain.example.lex.ui.Transactions;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import blockchain.example.lex.R;
 
-public class ShareFragment extends Fragment {
+public class TransactionsFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private TransactionsViewModel transactionsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        transactionsViewModel =
+                ViewModelProviders.of(this).get(TransactionsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_transactions, container, false);
+        final TextView textView = root.findViewById(R.id.text_transactions);
+        transactionsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
