@@ -1,5 +1,6 @@
 package blockchain.example.lex;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -78,7 +79,6 @@ public class HomeActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

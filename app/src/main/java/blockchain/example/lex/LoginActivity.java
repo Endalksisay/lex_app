@@ -19,9 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
-import java.util.HashMap;
-
-import blockchain.example.lex.Model.Users;
+import blockchain.example.lex.Model.User;
 import blockchain.example.lex.Prevalent.Prevalent;
 import io.paperdb.Paper;
 
@@ -31,7 +29,7 @@ public class LoginActivity extends AppCompatActivity
         private Button LoginButton;
         private ProgressDialog loadingBar;
 
-        private String parentDbName = "Users";
+        private String parentDbName = "User";
         private CheckBox chkBoxRememeberMe;
 
 
@@ -113,11 +111,11 @@ public class LoginActivity extends AppCompatActivity
             {
                if (dataSnapshot.child(parentDbName).child(phone).exists())
                {
-                   Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
+                   User userData = dataSnapshot.child(parentDbName).child(phone).getValue(User.class);
 
-                   if  (usersData.getPhone().equals(phone))
+                   if  (userData.getPhone().equals(phone))
                    {
-                       if  (usersData.getPassword().equals(password))
+                       if  (userData.getPassword().equals(password))
                        {
                            Toast.makeText(LoginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
                            loadingBar.dismiss();

@@ -32,11 +32,11 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        CreateAccountButton = (Button) findViewById(R.id.register_btn);
-        InputName = (EditText) findViewById(R.id.register_username_input);
-        InputPassword = (EditText) findViewById(R.id.register_password_input);
-        InputPhoneNumber = (EditText) findViewById(R.id.register_phone_number_input);
-        InputConfirmPassword = (EditText) findViewById(R.id.register_confirm_password_input);
+        CreateAccountButton = findViewById(R.id.register_btn);
+        InputName = findViewById(R.id.register_username_input);
+        InputPassword = findViewById(R.id.register_password_input);
+        InputPhoneNumber = findViewById(R.id.register_phone_number_input);
+        InputConfirmPassword = findViewById(R.id.register_confirm_password_input);
         loadingBar= new ProgressDialog(this);
 
         CreateAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -102,14 +102,14 @@ public class RegisterActivity extends AppCompatActivity {
              @Override
              public void onDataChange(@NonNull DataSnapshot dataSnapshot)
              {
-              if (!(dataSnapshot.child("Users").child(phone).exists()))
+              if (!(dataSnapshot.child("User").child(phone).exists()))
               {
                   HashMap<String, Object>userDataMap = new HashMap<>();
                   userDataMap.put("phone", phone);
                   userDataMap.put("password", password);
                   userDataMap.put("name", name);
 
-                  RootRef.child("Users").child(phone).updateChildren(userDataMap)
+                  RootRef.child("User").child(phone).updateChildren(userDataMap)
                           .addOnCompleteListener(new OnCompleteListener<Void>() {
                               @Override
                               public void onComplete(@NonNull Task<Void> task)

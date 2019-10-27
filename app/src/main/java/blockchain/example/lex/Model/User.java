@@ -1,15 +1,15 @@
 package blockchain.example.lex.Model;
 
-public class Users
+public class User
 {
         private String name, password, phone;
 
-    public Users()
+    public User()
         {
 
         }
 
-    public Users(String name, String phone, String password) {
+    public User(String name, String phone, String password) {
         this.name = name;
         this.phone = phone;
         this.password = password;

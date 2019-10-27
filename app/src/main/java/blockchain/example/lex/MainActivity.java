@@ -18,10 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
-import org.w3c.dom.Text;
-
-import blockchain.example.lex.Model.Users;
+import blockchain.example.lex.Model.User;
 import blockchain.example.lex.Prevalent.Prevalent;
 import io.paperdb.Paper;
 
@@ -99,13 +96,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                if (dataSnapshot.child("Users").child(phone).exists())
+                if (dataSnapshot.child("User").child(phone).exists())
                 {
-                    Users usersData = dataSnapshot.child("Users").child(phone).getValue(Users.class);
+                    User userData = dataSnapshot.child("User").child(phone).getValue(User.class);
 
-                    if  (usersData.getPhone().equals(phone))
+                    if  (userData.getPhone().equals(phone))
                     {
-                        if  (usersData.getPassword().equals(password))
+                        if  (userData.getPassword().equals(password))
                         {
                             Toast.makeText(MainActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
