@@ -14,8 +14,8 @@ import java.util.Date;
 public class Transaction {
     private int tokenID;
     private Date transactionTime;
-    private Users sender;
-    private Users receiver;
+    private User sender;
+    private User receiver;
 
     /**
      * Constructor to create a Transaction item.
@@ -24,14 +24,14 @@ public class Transaction {
      * @param sender Token sender
      * @param receiver Token receiever
      */
-    public Transaction(int tokenID, Date transactionTime, Users sender, Users receiver)
+    public Transaction(int tokenID, Date transactionTime, User sender, User receiver)
     {
         this.tokenID = tokenID;
         this.transactionTime = new Date();
         this.transactionTime = transactionTime;
-        this.sender = new Users();
+        this.sender = new User();
         this.sender = sender;
-        this.receiver = new Users();
+        this.receiver = new User();
         this.receiver = receiver;
     }
 
@@ -53,12 +53,12 @@ public class Transaction {
      * Get the data of the Token's sender
      * @return Token sender's Profile
      */
-    public Users getSender(){return sender;}
+    public User getSender(){return sender;}
 
     /**
      * Get the data of the Token's receiver
      * @return Token receiver's Profile
      */
-    public Users getReceiver(){return receiver;}
+    public User getReceiver(){return receiver;}
 
 }
