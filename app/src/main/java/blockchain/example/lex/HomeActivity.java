@@ -1,3 +1,4 @@
+
 package blockchain.example.lex;
 
 import android.content.Intent;
@@ -32,6 +33,11 @@ import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private AppBarConfiguration mAppBarConfiguration;
+    private double currentCurrency = 0;
+    private Button currencyButton;
+    private Button btn1;
+    private ArrayList<Button> companyButtons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
         currencyButton.setText(btnSetText);
 
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 20; i++) {
             LinearLayout linear = findViewById(R.id.companyButtonLayout);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -80,8 +86,8 @@ public class HomeActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_home, R.id.nav_Merchants, R.id.nav_transaction,
+                R.id.nav_settings, R.id.nav_contact, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -103,3 +109,6 @@ public class HomeActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 }
+
+
+
