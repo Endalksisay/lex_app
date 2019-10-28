@@ -40,12 +40,12 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
 
-       LoginButton = (Button) findViewById(R.id.login_btn);
-        InputPassword = (EditText) findViewById(R.id.login_password_input);
-        InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
+       LoginButton = findViewById(R.id.login_btn);
+        InputPassword = findViewById(R.id.login_password_input);
+        InputPhoneNumber = findViewById(R.id.login_phone_number_input);
         loadingBar= new ProgressDialog(this);
 
-        chkBoxRememeberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
+        chkBoxRememeberMe = findViewById(R.id.remember_me_chkb);
         Paper.init(this);
 
 
@@ -112,8 +112,7 @@ public class LoginActivity extends AppCompatActivity
                if (dataSnapshot.child(parentDbName).child(phone).exists())
                {
                    User userData = dataSnapshot.child(parentDbName).child(phone).getValue(User.class);
-
-                   if  (userData.getPhone().equals(phone))
+                   if  (userData != null && userData.getPhone().equals(phone))
                    {
                        if  (userData.getPassword().equals(password))
                        {
@@ -121,6 +120,7 @@ public class LoginActivity extends AppCompatActivity
                            loadingBar.dismiss();
 
                            Intent intent = new Intent (LoginActivity.this, HomeActivity.class);
+
                            startActivity(intent);
 
                        }

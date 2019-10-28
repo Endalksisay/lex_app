@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
-        loginButton = (Button) findViewById(R.id.main_login_btn);
+        joinNowButton = findViewById(R.id.main_join_now_btn);
+        loginButton = findViewById(R.id.main_login_btn);
         loadingBar = new ProgressDialog(this);
 
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
    String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
    String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey) ;
 
-      if (UserPhoneKey!="" && UserPasswordKey!="");
+      if(!UserPhoneKey.equals("") && !UserPasswordKey.equals(""))
         {
             if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey))
             {
@@ -99,8 +99,7 @@ public class MainActivity extends AppCompatActivity
                 if (dataSnapshot.child("User").child(phone).exists())
                 {
                     User userData = dataSnapshot.child("User").child(phone).getValue(User.class);
-
-                    if  (userData.getPhone().equals(phone))
+                    if  (userData != null && userData.getPhone().equals(phone))
                     {
                         if  (userData.getPassword().equals(password))
                         {
