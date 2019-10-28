@@ -18,10 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
-import org.w3c.dom.Text;
-
-import blockchain.example.lex.Model.Users;
+import blockchain.example.lex.Model.User;
 import blockchain.example.lex.Prevalent.Prevalent;
 import io.paperdb.Paper;
 
@@ -39,8 +36,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
-        loginButton = (Button) findViewById(R.id.main_login_btn);
+        joinNowButton = findViewById(R.id.main_join_now_btn);
+        loginButton = findViewById(R.id.main_login_btn);
         loadingBar = new ProgressDialog(this);
 
 
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity
    String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
    String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey) ;
 
-      if (UserPhoneKey!="" && UserPasswordKey!="");
+      if(!UserPhoneKey.equals("") && !UserPasswordKey.equals(""))
         {
             if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey))
             {
@@ -99,13 +96,12 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                if (dataSnapshot.child("Users").child(phone).exists())
+                if (dataSnapshot.child("User").child(phone).exists())
                 {
-                    Users usersData = dataSnapshot.child("Users").child(phone).getValue(Users.class);
-
-                    if  (usersData.getPhone().equals(phone))
+                    User userData = dataSnapshot.child("User").child(phone).getValue(User.class);
+                    if  (userData != null && userData.getPhone().equals(phone))
                     {
-                        if  (usersData.getPassword().equals(password))
+                        if  (userData.getPassword().equals(password))
                         {
                             Toast.makeText(MainActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();

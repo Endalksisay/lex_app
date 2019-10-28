@@ -3,7 +3,7 @@ package blockchain.example.lex.Model;
 import java.util.ArrayList;
 
 /**
- * This class stores the data for each individual token that will be passed to the Users.
+ * This class stores the data for each individual token that will be passed to the User.
  * @author Alejandro Lopez
  */
 public class Token {
