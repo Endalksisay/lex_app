@@ -19,9 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
-import java.util.HashMap;
-
-import blockchain.example.lex.Model.Users;
+import blockchain.example.lex.Model.User;
 import blockchain.example.lex.Prevalent.Prevalent;
 import io.paperdb.Paper;
 
@@ -31,7 +29,7 @@ public class LoginActivity extends AppCompatActivity
         private Button LoginButton;
         private ProgressDialog loadingBar;
 
-        private String parentDbName = "Users";
+        private String parentDbName = "User";
         private CheckBox chkBoxRememeberMe;
 
 
@@ -42,12 +40,12 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
 
-       LoginButton = (Button) findViewById(R.id.login_btn);
-        InputPassword = (EditText) findViewById(R.id.login_password_input);
-        InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
+       LoginButton = findViewById(R.id.login_btn);
+        InputPassword = findViewById(R.id.login_password_input);
+        InputPhoneNumber = findViewById(R.id.login_phone_number_input);
         loadingBar= new ProgressDialog(this);
 
-        chkBoxRememeberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
+        chkBoxRememeberMe = findViewById(R.id.remember_me_chkb);
         Paper.init(this);
 
 
@@ -113,16 +111,16 @@ public class LoginActivity extends AppCompatActivity
             {
                if (dataSnapshot.child(parentDbName).child(phone).exists())
                {
-                   Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
-
-                   if  (usersData.getPhone().equals(phone))
+                   User userData = dataSnapshot.child(parentDbName).child(phone).getValue(User.class);
+                   if  (userData != null && userData.getPhone().equals(phone))
                    {
-                       if  (usersData.getPassword().equals(password))
+                       if  (userData.getPassword().equals(password))
                        {
                            Toast.makeText(LoginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
                            loadingBar.dismiss();
 
                            Intent intent = new Intent (LoginActivity.this, HomeActivity.class);
+
                            startActivity(intent);
 
                        }

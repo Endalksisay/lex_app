@@ -7,18 +7,18 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_center_focus_weak_black_24dp"
             android:title="LEX" />
 
         <item
             android:id="@+id/nav_Merchants"
-            android:icon="@drawable/category"
+            android:icon="@drawable/ic_attach_money_black_24dp"
             android:title="Merchants" />
 
 
         <item
             android:id="@+id/nav_transaction"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_autorenew_black_24dp"
             android:title="Transactions" />
         <item
             android:id="@+id/nav_settings"
@@ -28,7 +28,7 @@
 
             <item
                 android:id="@+id/nav_contact"
-                android:icon="@drawable/books"
+                android:icon="@drawable/ic_contact_phone_black_24dp"
                 android:title="Contact" />
             <item
                 android:id="@+id/nav_logout"

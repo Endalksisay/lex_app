@@ -1,6 +1,7 @@
 
 package blockchain.example.lex;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,9 +29,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import io.paperdb.Paper;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.core.view.GravityCompat;
 
 
-public class HomeActivity extends AppCompatActivity {
+
+
+
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+{
 
     private AppBarConfiguration mAppBarConfiguration;
     private double currentCurrency = 0;
@@ -81,7 +89,6 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
@@ -108,7 +115,54 @@ public class HomeActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public  boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+        return super.onOptionsItemSelected(item);
+
+    }
+    public boolean onNavigationItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id==R.id.nav_home)
+        {
+
+        }
+
+        else if (id == R.id.nav_Merchants)
+        {
+
+        }
+        else if (id == R.id.nav_transaction)
+        {
+
+        }
+        else if (id == R.id.nav_settings)
+        {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_logout)
+        {
+            Paper.book().destroy();
+
+            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+
+
+
+    }
+
 }
+
+
 
 
 
