@@ -29,8 +29,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
+
 import io.paperdb.Paper;
-import androidx.drawerlayout.widget.DrawerLayout;
+
 import androidx.core.view.GravityCompat;
 
 
@@ -51,33 +52,32 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        currencyButton = findViewById(R.id.currency_button);
-        String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
-        currencyButton.setText(btnSetText);
-
-        for (int i = 1; i <= 20; i++) {
-            LinearLayout linear = findViewById(R.id.companyButtonLayout);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            Button btn = new Button(this);
-            btn.setId(i);
-            final int id_ = btn.getId();
-            String btnText = "button " + id_;
-            btn.setText(btnText);
-            linear.addView(btn, params);
-            btn1 = (findViewById(id_));
-            btn1.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    Toast.makeText(view.getContext(),
-                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
-                            .show();
-                }
-            });
-        }
+//    currencyButton = findViewById(R.id.currency_button);
+//    String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
+//        currencyButton.setText(btnSetText);
+//       for (int i = 1; i <= 20; i++) {
+//          LinearLayout linear = findViewById(R.id.companyButtonLayout);
+//           LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+//                  LinearLayout.LayoutParams.MATCH_PARENT,
+//                   LinearLayout.LayoutParams.WRAP_CONTENT);
+//            Button btn = new Button(this);
+//          btn.setId(i);
+//           final int id_ = btn.getId();
+//           String btnText = "button " + id_;
+//            btn.setText(btnText);
+//           linear.addView(btn, params);
+//           btn1 = (findViewById(id_));
+//           btn1.setOnClickListener(new View.OnClickListener() {
+//               public void onClick(View view) {
+//                   Toast.makeText(view.getContext(),
+//                          "Button clicked index = " + id_, Toast.LENGTH_SHORT)
+//                           .show();
+//               }
+//          });
+//       }
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-        toolbar.setTitle("Home");
+        toolbar.setTitle("LEX");
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_Merchants, R.id.nav_transaction,
+                R.id.nav_Lex, R.id.nav_Merchants, R.id.nav_transaction,
                 R.id.nav_settings, R.id.nav_contact, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
@@ -122,9 +122,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
 
     }
+
+
     public boolean onNavigationItemSelected(MenuItem item){
+
         int id = item.getItemId();
-        if (id==R.id.nav_home)
+        if (id==R.id.nav_Lex)
         {
 
         }
@@ -137,10 +140,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         {
 
         }
-        else if (id == R.id.nav_settings)
+
+         else if (id == R.id.nav_settings)
         {
             Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
             startActivity(intent);
+        }
+
+        else if (id==R.id.nav_contact)
+        {
+            Intent intent = new Intent(HomeActivity.this, ContactActivity.class);
+            startActivity(intent);
+
         }
         else if (id == R.id.nav_logout)
         {
