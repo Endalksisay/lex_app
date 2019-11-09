@@ -33,6 +33,7 @@
                     android:text="Close"
                     android:textColor="@android:color/white"
                     android:textSize="17sp"
+                    android:contextClickable="true"
 
                     android:textStyle="bold"
                     android:layout_alignParentStart="true" />
@@ -44,6 +45,7 @@
                     android:text="Update"
                     android:textColor="@android:color/white"
                     android:textSize="17sp"
+                    android:contextClickable="true"
 
                     android:textStyle="bold"
                     android:layout_marginRight="10dp"
@@ -64,10 +66,11 @@
         android:id="@+id/settings_profile_image"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:src="@drawable/profile"
+        android:src="@drawable/nikita"
         android:layout_below="@+id/app_bar_settings"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+
         />
 
 
@@ -84,11 +87,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Change profile"
+        android:contextClickable="true"
         android:textSize="17sp"
         android:textStyle="bold"
         android:layout_marginRight="10dp"
         android:layout_marginTop="4dp"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_below="@+id/settings_profile_image"
         android:layout_centerHorizontal="true" />
 

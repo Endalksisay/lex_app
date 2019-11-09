@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aboutus"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Aboutus">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/endalk_image"
+        android:layout_width="96dp"
+        android:layout_height="106dp"
+        android:layout_below="@+id/app_bar_settings"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/endalk"
+
+        />
+
+    <TextView
+        android:id="@+id/text_endalk"
+        android:layout_width="390dp"
+        android:layout_height="109dp"
+        android:layout_below="@+id/endalk_image"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-77dp"
+        android:layout_marginEnd="8dp"
+        android:text="Endalk Aychiluhim"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/endalk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_endalk"
+        android:layout_marginTop="-73dp"
+        android:text="Software Engineer"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/nikita_image"
+        android:layout_width="96dp"
+        android:layout_height="106dp"
+        android:layout_below="@+id/endalk"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/nikita"
+
+        />
+
+    <TextView
+        android:id="@+id/text_nikita"
+        android:layout_width="390dp"
+        android:layout_height="109dp"
+        android:layout_below="@+id/nikita_image"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-79dp"
+        android:layout_marginEnd="8dp"
+        android:text="Nikita Voloshenko"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/nikita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_nikita"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-62dp"
+        android:text="Software Engineer"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="88dp"
+        android:layout_below="@+id/nikita"
+        android:layout_marginTop="78dp"
+        android:src="@drawable/alejandro"
+
+        />
+
+    <TextView
+        android:id="@+id/Alejandro"
+        android:layout_width="374dp"
+        android:layout_height="106dp"
+        android:layout_below="@+id/profile_image"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-69dp"
+        android:layout_marginEnd="8dp"
+        android:text="Alejandro Lopez "
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Alejandro"
+        android:layout_marginTop="-73dp"
+        android:text="Software Engineer"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_aboutus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Alejandro"
+        android:layout_marginTop="-73dp"
+        android:text="Software Engineer"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</RelativeLayout>

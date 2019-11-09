@@ -1,16 +1,15 @@
-package blockchain.example.lex.ui.Merchants;
+package blockchain.example.lex.ui.ui.aboutus;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MerchantsViewModel extends ViewModel {
-
+public class AboutusViewModel extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public MerchantsViewModel() {
+    public AboutusViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is merchants fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {
