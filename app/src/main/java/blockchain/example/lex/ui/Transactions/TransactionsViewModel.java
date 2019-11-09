@@ -13,7 +13,7 @@ public class TransactionsViewModel extends ViewModel {
 
     public TransactionsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is transactions fragment");
+        mText.setValue("");
 
     }
 

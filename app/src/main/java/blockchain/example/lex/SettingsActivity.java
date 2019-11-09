@@ -1,18 +1,9 @@
 package blockchain.example.lex;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
-
-
 import android.net.Uri;
-
-
 import android.widget.EditText;
 import android.widget.TextView;
-
-
-
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
