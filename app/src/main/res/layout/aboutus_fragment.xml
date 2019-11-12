@@ -6,7 +6,8 @@
     android:id="@+id/aboutus"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Aboutus">
+    tools:context=".ui.Aboutus"
+   >
 
 
     <de.hdodenhof.circleimageview.CircleImageView
