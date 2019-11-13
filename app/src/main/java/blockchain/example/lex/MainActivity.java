@@ -22,12 +22,14 @@ import blockchain.example.lex.Model.User;
 import blockchain.example.lex.Prevalent.Prevalent;
 import io.paperdb.Paper;
 
+
+
+
 public class MainActivity extends AppCompatActivity
 {
 
 
-    private Button
-    joinNowButton, loginButton;
+    private Button joinNowButton, loginButton;
     private ProgressDialog loadingBar;
 
     @Override
@@ -47,28 +49,28 @@ public class MainActivity extends AppCompatActivity
         loginButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
-                    public void onClick(View view)
-        {
-           Intent intent = new Intent (MainActivity.this, LoginActivity.class);
-           startActivity(intent);
-        }
-    });
+            public void onClick(View view)
+            {
+                Intent intent = new Intent (MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
-      joinNowButton.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view)
-          {
-              Intent intent = new Intent (MainActivity.this, RegisterActivity.class);
-              startActivity(intent);
+        joinNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent (MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
 
-          }
-      });
+            }
+        });
 
-   String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
-   String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey) ;
+        String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
+        String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey) ;
 
-      if(!UserPhoneKey.equals("") && !UserPasswordKey.equals(""))
+        if(!UserPhoneKey.equals("") && !UserPasswordKey.equals(""))
         {
             if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey))
             {
