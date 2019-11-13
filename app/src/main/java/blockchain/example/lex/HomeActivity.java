@@ -30,6 +30,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import blockchain.example.lex.Model.Transaction;
+import blockchain.example.lex.ui.Aboutus;
 import io.paperdb.Paper;
 
 import androidx.core.view.GravityCompat;
@@ -138,6 +140,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_transaction)
         {
+            Intent intent = new Intent(HomeActivity.this, Transaction.class);
+            startActivity(intent);
 
         }
 
@@ -150,6 +154,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         else if (id==R.id.nav_contact)
         {
             Intent intent = new Intent(HomeActivity.this, ContactActivity.class);
+            startActivity(intent);
+
+        }
+        else if (id==R.id.nav_aboutus)
+        {
+            Intent intent = new Intent(HomeActivity.this, Aboutus.class);
             startActivity(intent);
 
         }
