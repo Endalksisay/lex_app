@@ -1,5 +1,6 @@
 package blockchain.example.lex;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -18,6 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import blockchain.example.lex.Model.Token;
 import blockchain.example.lex.Model.User;
 import blockchain.example.lex.Prevalent.Prevalent;
 import io.paperdb.Paper;
@@ -31,6 +37,8 @@ public class MainActivity extends AppCompatActivity
 
     private Button joinNowButton, loginButton;
     private ProgressDialog loadingBar;
+
+    public List<Token> userTokens = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -85,6 +93,17 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
+    }
+
+    public void writeTokensToStorage(ArrayList<Token> tokens) {
+        // TODO
+        return;
+    }
+
+
+    private ArrayList<Token> readTokensFromStorage() {
+        // TODO
+        return new ArrayList<Token>();
     }
 
     private void AllowAccess(final String phone, final String password)
