@@ -1,8 +1,5 @@
 package blockchain.example.lex;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,42 +26,54 @@ import blockchain.example.lex.Model.User;
 import blockchain.example.lex.Prevalent.Prevalent;
 import io.paperdb.Paper;
 
-public class LoginActivity extends AppCompatActivity
-        {
-        private EditText InputPhoneNumber, InputPassword;
-        private Button LoginButton;
-        private ProgressDialog loadingBar;
+public class LoginActivity extends AppCompatActivity  {
 
-        private String parentDbName = "User";
-        private CheckBox chkBoxRememeberMe;
+    private EditText InputPhoneNumber, InputPassword;
+    private Button LoginButton;
+    private ProgressDialog loadingBar;
 
+    private String parentDbName = "User";
+    private CheckBox chkBoxRememeberMe;
 
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_login);
+//
+//        // Google Sign In
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//        mAuth = FirebaseAuth.getInstance();
+//
+//
+//        // Regular Sign In / Sign Up
+//        LoginButton = findViewById(R.id.login_btn);
+//        InputPassword = findViewById(R.id.login_password_input);
+//        InputPhoneNumber = findViewById(R.id.login_phone_number_input);
+//        loadingBar= new ProgressDialog(this);
+//
+//        chkBoxRememeberMe = findViewById(R.id.remember_me_chkb);
+//        Paper.init(this);
+//
+//
+//
+//        LoginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view)
+//            {
+//
+//                LoginUser();
+//            }
+//        });
+//    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-
-       LoginButton = findViewById(R.id.login_btn);
-        InputPassword = findViewById(R.id.login_password_input);
-        InputPhoneNumber = findViewById(R.id.login_phone_number_input);
-        loadingBar= new ProgressDialog(this);
-
-        chkBoxRememeberMe = findViewById(R.id.remember_me_chkb);
-        Paper.init(this);
-
-
-
-        LoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-
-                LoginUser();
-            }
-        });
-    }
+    ////////////////////////////
+    // Regular Sign In Section
+    ////////////////////////////
 
     private void LoginUser()
     {

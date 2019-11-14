@@ -9,7 +9,16 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-
+    <string name="loading">Loading…</string>
+    <string name="sign_in">Sign In</string>
+<!--    <string name="default_web_client_id" translatable="false">771334772461-422ltuk9lksm8100dmevud7q4246m46p.apps.googleusercontent.com-->
+<!--</string>-->
+    <string name="signed_in">Signed In</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
+    <string name="firebase_user_management">Firebase User Management</string>
+    <string name="google_status_fmt">Google User: %s</string>
+    <string name="google_title_text">Google Sign In</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
