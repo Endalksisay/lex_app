@@ -1,17 +1,14 @@
-package blockchain.example.lex.ui.Transactions;
+package blockchain.example.lex.ui.Send;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import blockchain.example.lex.R;
-
-public class TransactionsViewModel extends ViewModel {
+public class SendViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public TransactionsViewModel() {
+    public SendViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("");
 

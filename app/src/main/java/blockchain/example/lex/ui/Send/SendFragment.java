@@ -1,4 +1,4 @@
-package blockchain.example.lex.ui.Transactions;
+package blockchain.example.lex.ui.Send;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import blockchain.example.lex.R;
 
-public class TransactionsFragment extends Fragment {
+public class SendFragment extends Fragment {
 
-    private TransactionsViewModel transactionsViewModel;
+    private SendViewModel sendViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        transactionsViewModel =
-                ViewModelProviders.of(this).get(TransactionsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_transactions, container, false);
+        sendViewModel =
+                ViewModelProviders.of(this).get(SendViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_send, container, false);
         final TextView textView = root.findViewById(R.id.text_transactions);
-        transactionsViewModel.getText().observe(this, new Observer<String>() {
+        sendViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

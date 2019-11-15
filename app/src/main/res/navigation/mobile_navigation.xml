@@ -21,10 +21,16 @@
 
     <fragment
         android:id="@+id/nav_transaction"
-        android:name="blockchain.example.lex.ui.Transactions.TransactionsFragment"
+        android:name="blockchain.example.lex.ui.Send.SendFragment"
         android:label="Transactions"
-        tools:layout="@layout/fragment_transactions" />
+        tools:layout="@layout/fragment_send" />
 
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="blockchain.example.lex.ui.Send.SendFragment"
+        android:label="Send"
+        tools:layout="@layout/fragment_send" />
     <fragment
         android:id="@+id/nav_settings"
         android:name="blockchain.example.lex.ui.settings.SettingsFragment"

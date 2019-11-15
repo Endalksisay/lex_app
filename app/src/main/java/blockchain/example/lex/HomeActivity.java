@@ -32,6 +32,7 @@ import java.util.Locale;
 
 import blockchain.example.lex.Model.Transaction;
 import blockchain.example.lex.ui.Aboutus;
+import blockchain.example.lex.ui.Send.SendFragment;
 import io.paperdb.Paper;
 
 import androidx.core.view.GravityCompat;
@@ -138,9 +139,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         {
 
         }
-        else if (id == R.id.nav_transaction)
+        else if (id == R.id.nav_send)
         {
-            Intent intent = new Intent(HomeActivity.this, Transaction.class);
+            Intent intent = new Intent(HomeActivity.this, SendFragment.class);
             startActivity(intent);
 
         }
