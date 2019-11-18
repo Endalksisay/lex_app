@@ -47,6 +47,50 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+<!--            <LinearLayout-->
+<!--                android:id="@+id/tokenLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/tokenImage"-->
+<!--                    android:layout_width="96dp"-->
+<!--                    android:layout_height="106dp"-->
+
+<!--                    android:layout_marginTop="46dp"-->
+<!--                    android:src="@drawable/nikita"-->
+
+<!--                    />-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tokenDesc"-->
+<!--                    android:layout_width="250dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="90dp"-->
+<!--                    android:text="Software Engineer"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tokenValue"-->
+<!--                    android:layout_width="72dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="100dp"-->
+<!--                    android:text="100.00"/>-->
+
+
+
+<!--            </LinearLayout>-->
+
+
 
             </LinearLayout>
         </ScrollView>
