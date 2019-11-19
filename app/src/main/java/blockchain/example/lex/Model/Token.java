@@ -2,6 +2,8 @@ package blockchain.example.lex.Model;
 
 import java.util.ArrayList;
 
+import blockchain.example.lex.R;
+
 /**
  * This class stores the data for each individual token that will be passed to the User.
  * @author Alejandro Lopez
@@ -11,7 +13,8 @@ public class Token {
     private String tokenName;
     private String description;
     private String companyName;
-    private String logoLocation;
+    private int logo;
+    private double value;
     private ArrayList<Transaction> tokenTransactions;
 
     /**
@@ -23,7 +26,8 @@ public class Token {
         tokenName = "";
         description = "";
         companyName = "";
-        logoLocation = "";
+        logo = R.drawable.alejandro;
+        value = 0;
         tokenTransactions = new ArrayList<>();
 
     }
@@ -34,12 +38,12 @@ public class Token {
      * @param publicKey Public key for the token.
      * @param tokenName Name of the token.
      * @param description Description of this token.
-     * @param logoLocation File location of the logo.
+     * @param logo File location of the logo.
      * Precondition: All String arguments must be Strings and not null.
      * Postcondition: Token object will be created.
      */
     public Token(String publicKey, String tokenName, String description,
-                 String logoLocation)
+                 int logo)
     {
         if (publicKey != null && tokenName != null && description != null)
         {
@@ -47,6 +51,32 @@ public class Token {
             this.tokenName = tokenName;
             this.description = description;
         }
+        this.logo = logo;
+        tokenTransactions = new ArrayList<>();
+    }
+
+    /**
+     * Constructor that builds a Token object without passing an ArrayList for the
+     * transactions.
+     * @param publicKey Public key for the token.
+     * @param tokenName Name of the token.
+     * @param description Description of this token.
+     * @param logo File location of the logo.
+     * @param value Value held for current Token.
+     * Precondition: All String arguments must be Strings and not null.
+     * Postcondition: Token object will be created.
+     */
+    public Token(String publicKey, String tokenName, String description,
+                 int logo, double value)
+    {
+        if (publicKey != null && tokenName != null && description != null)
+        {
+            this.publicKey = publicKey;
+            this.tokenName = tokenName;
+            this.description = description;
+        }
+        this.logo = logo;
+        this.value = value;
         tokenTransactions = new ArrayList<>();
     }
 
@@ -56,14 +86,14 @@ public class Token {
      * @param publicKey Public key for the token.
      * @param tokenName Name of the token.
      * @param description Description of this token.
-     * @param logoLocation File location of the logo.
+     * @param logo File location of the logo.
      * @param tokenTransactions List of transactions for this token.
      * Precondition: All String arguments must be Strings and not null and
      * ArrayList must be a valid ArrayList.
      * Postcondition: Token object will be created.
      */
     public Token(String publicKey, String tokenName, String description,
-                 String logoLocation, ArrayList<Transaction> tokenTransactions)
+                 int logo, ArrayList<Transaction> tokenTransactions)
     {
         if (publicKey != null && tokenName != null && description != null)
         {
@@ -71,6 +101,7 @@ public class Token {
             this.tokenName = tokenName;
             this.description = description;
         }
+        this.logo = logo;
         tokenTransactions = new ArrayList<>();
         this.tokenTransactions = (ArrayList) tokenTransactions.clone();
     }
@@ -82,14 +113,14 @@ public class Token {
      * @param tokenName Name of the token.
      * @param description Description of this token.
      * @param companyName Name of company associated with token.
-     * @param logoLocation File location of the logo.
+     * @param logo File location of the logo.
      * @param tokenTransactions List of transactions for this token.
      * Precondition: All String arguments must be Strings and not null and
      * ArrayList must be a valid ArrayList.
      * Postcondition: Token object will be created.
      */
     public Token(String publicKey, String tokenName, String description,
-                 String companyName, String logoLocation, ArrayList<Transaction> tokenTransactions)
+                 String companyName, int logo, ArrayList<Transaction> tokenTransactions)
     {
         if (publicKey != null && tokenName != null && description != null && companyName != null)
         {
@@ -98,6 +129,7 @@ public class Token {
             this.description = description;
             this.companyName = companyName;
         }
+        this.logo = logo;
         tokenTransactions = new ArrayList<>();
         this.tokenTransactions = (ArrayList) tokenTransactions.clone();
     }
@@ -129,12 +161,14 @@ public class Token {
      * Accessor method that gives access to the location of the token's logo.
      * @return Token's logo location.
      */
-    public String getLogoLocation(){return logoLocation;}
+    public int getLogo(){return logo;}
     /**
      * Accessor method that gives access to the token's ArrayList of transactions.
      * @return An ArrayList containing all of the token's transactions.
      */
     public ArrayList<Transaction> getTokenTransactions(){return tokenTransactions;}
+
+    public double getValue(){return value;}
 
     //Mutators
     public void setPublicKey(String publicKey)
@@ -161,9 +195,8 @@ public class Token {
             this.companyName = companyName;
     }
 
-    public void setLogoLocation(String logoLocation)
+    public void setLogo(int logo)
     {
-        if (logoLocation != null)
-            this.logoLocation = logoLocation;
+        this.logo = logo;
     }
 }

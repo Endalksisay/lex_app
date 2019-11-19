@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity
         else
             {
                 loadingBar.setTitle("Login Account");
-                loadingBar.setMessage("Please wait, while we are checking the credentials");
+                loadingBar.setMessage("Please wait, while we check the credentials");
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();
 

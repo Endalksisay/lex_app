@@ -22,23 +22,29 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import blockchain.example.lex.Model.Token;
+import blockchain.example.lex.Model.User;
 import blockchain.example.lex.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LexFragment extends Fragment {
     private double currentCurrency = 0;
     private Button currencyButton;
-    private Button btn1;
+    //private Button btn1;
     private ArrayList<Button> companyButtons = new ArrayList<>();
     private LexViewModel homeViewModel;
-
-
+    private Token testToken = new Token();
+    private User testUser = new User();
+//    private ArrayList tokenList = new ArrayList();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
         homeViewModel =
                 ViewModelProviders.of(this).get(LexViewModel.class);
         View root = inflater.inflate(R.layout.fragment_lex, container, false);
@@ -53,6 +59,7 @@ public class LexFragment extends Fragment {
         currencyButton = root.findViewById(R.id.currency_button);
         String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
         currencyButton.setText(btnSetText);
+        //root.findViewById(R)
 
 //        LayoutInflater linf;
 //        LinearLayout rr;
@@ -81,8 +88,9 @@ public class LexFragment extends Fragment {
 //            LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
 //
 //        }
-
-        for (int i = 1; i <= 20; i++) {
+        ArrayList<Token> tokenList = testUser.getUserTokens();
+        for (int i = 0; i < tokenList.size(); i++) {
+            final Token indToken = tokenList.get(i);
             LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -104,6 +112,7 @@ public class LexFragment extends Fragment {
 
             //EditText edXY = new EditText(inventory.this);
             layout2.setLayoutParams(parameters);
+            layout2.setGravity(Gravity.CENTER);
 
 //            android:layout_width="96dp"-->
 //<!--                    android:layout_height="106dp"-->
@@ -113,14 +122,16 @@ public class LexFragment extends Fragment {
             btn.setId(i);
             CircleImageView image = new CircleImageView(root.getContext());
             image.setId(i);
-            ;
+
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(150, 150);
 //            image.requestLayout();
             image.setLayoutParams(layoutParams);
             image.setPadding(10,10,10,10);
 //            image.getLayoutParams().width = 96;
 //            image.getLayoutParams().height = 106;
-            image.setImageResource(R.drawable.alejandro);
+            //image.setImageResource(R.drawable.alejandro);
+            //Token t tokenList.get(i).getLogo();
+            image.setImageResource(indToken.getLogo());
 //            image.setMaxWidth(96);
 //            image.setMaxHeight(106);
 
@@ -136,23 +147,36 @@ public class LexFragment extends Fragment {
             tv1.setTextSize(25);
             tv2.setTextSize(25);
 
-            tv1.setText("Company " + i);
-            tv2.setText(i + "00.00");
+//            String toName = indToken.getTokenName();
+            tv1.setText(indToken.getTokenName());
+            String valueText = String.format(Locale.US, "$%.2f", indToken.getValue());
+            tv2.setText(valueText);
 
             tv1.setGravity(Gravity.CENTER);
-            tv2.setGravity(Gravity.RIGHT);
+            tv2.setGravity(Gravity.END);
             tv1.setPadding(200,10,1,10);
-            tv2.setPadding(150,10,1,10);
+            tv2.setPadding(100,10,1,10);
             //tv2.layout(10,10,10,10);
 
             layout2.addView(tv1);
             layout2.addView(tv2);
+
+            final int lID_ = layout2.getId();
+
+            //layoutTwo = root.findViewById(lID_);
+            layout2.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(),
+                            indToken.getTokenName(), Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
 //            lBut.setId(i);
-            final int id_ = btn.getId();
+//            final int id_ = btn.getId();
 //            final int lBId_ = lBut.getId();
-            String btnText = "button " + id_;
+//            String btnText = "button " + id_;
 //            String lButText = "button " + lBId_;
-            btn.setText(btnText);
+//            btn.setText(btnText);
 
 //            linear.addView(btn, params);
 //            linear.addView(lBut, params);
