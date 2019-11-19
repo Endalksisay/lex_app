@@ -44,7 +44,8 @@ public class LexFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-
+        ArrayList<Token> tokenList = testUser.getUserTokens();
+        currentCurrency = testUser.getTotalTokenVal();
         homeViewModel =
                 ViewModelProviders.of(this).get(LexViewModel.class);
         View root = inflater.inflate(R.layout.fragment_lex, container, false);
@@ -57,7 +58,7 @@ public class LexFragment extends Fragment {
         });
 
         currencyButton = root.findViewById(R.id.currency_button);
-        String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
+        String btnSetText = String.format(Locale.US, "Total Currency: %.2f", currentCurrency);
         currencyButton.setText(btnSetText);
         //root.findViewById(R)
 
@@ -88,7 +89,7 @@ public class LexFragment extends Fragment {
 //            LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
 //
 //        }
-        ArrayList<Token> tokenList = testUser.getUserTokens();
+
         for (int i = 0; i < tokenList.size(); i++) {
             final Token indToken = tokenList.get(i);
             LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
@@ -149,7 +150,7 @@ public class LexFragment extends Fragment {
 
 //            String toName = indToken.getTokenName();
             tv1.setText(indToken.getTokenName());
-            String valueText = String.format(Locale.US, "$%.2f", indToken.getValue());
+            String valueText = String.format(Locale.US, "%.2f", indToken.getValue());
             tv2.setText(valueText);
 
             tv1.setGravity(Gravity.CENTER);

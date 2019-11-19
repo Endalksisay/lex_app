@@ -89,5 +89,15 @@ public class User
         userTokens.add(amazon);
         userTokens.add(apple);
     }
+
+    public double getTotalTokenVal()
+    {
+        double total = 0;
+        for (int i = 0; i < userTokens.size(); i++)
+        {
+            total += userTokens.get(i).getValue();
+        }
+        return total;
+    }
 }
 
