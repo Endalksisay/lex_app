@@ -63,34 +63,31 @@ public class SendFragment extends Fragment {
 
         Button sendBtn = root.findViewById(R.id.send_btn);
 
-        sendBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(Double.parseDouble(sendAmount.getText().toString()) != Double.parseDouble(confirmAmount.getText().toString()))
+        sendBtn.setOnClickListener(v -> {
+            if(Double.parseDouble(sendAmount.getText().toString()) != Double.parseDouble(confirmAmount.getText().toString()))
+            {
+                Toast t = Toast.makeText(root.getContext(),"Please ensure that both fields are equal.",Toast.LENGTH_SHORT);
+                t.show();
+            }
+            else
+            {
+                if(indToken.reduceValue(Double.parseDouble(sendAmount.getText().toString())))
                 {
-                    Toast t = Toast.makeText(root.getContext(),"Please ensure that both fields are equal.",Toast.LENGTH_SHORT);
+                    Toast t = Toast.makeText(root.getContext(), "Success! New amount = " + indToken.getValue(), Toast.LENGTH_SHORT);
                     t.show();
+                    LexFragment nextFrag= new LexFragment(indUser);
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.send_fragment, nextFrag, "findSendFragment")
+                            .addToBackStack(null)
+                            .commit();
                 }
                 else
                 {
-                    if(indToken.reduceValue(Double.parseDouble(sendAmount.getText().toString())))
-                    {
-                        Toast t = Toast.makeText(root.getContext(), "Success! New amount = " + indToken.getValue(), Toast.LENGTH_SHORT);
-                        t.show();
-                        LexFragment nextFrag= new LexFragment(indUser);
-                        getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.send_fragment, nextFrag, "findSendFragment")
-                                .addToBackStack(null)
-                                .commit();
-                    }
-                    else
-                    {
-                        Toast t = Toast.makeText(root.getContext(), "Unable to process transaction, please ensure you have enough funds to transfer.", Toast.LENGTH_SHORT);
-                        t.show();
-                    }
-
-
+                    Toast t = Toast.makeText(root.getContext(), "Unable to process transaction, please ensure you have enough funds to transfer.", Toast.LENGTH_SHORT);
+                    t.show();
                 }
+
+
             }
         });
 

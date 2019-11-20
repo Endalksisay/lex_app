@@ -11,7 +11,7 @@ public class User
 
     public User()
         {
-            name = "Alejandro";
+            name = "Nikita";
             password = "password";
             phone = "5555555";
             createUserTokens();
