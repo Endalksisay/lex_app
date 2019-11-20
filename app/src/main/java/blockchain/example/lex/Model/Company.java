@@ -1,8 +1,10 @@
 package blockchain.example.lex.Model;
 
-/*
- * NOT CURRENTLY IN USE
- */
+
+
+import java.util.ArrayList;
+
+import blockchain.example.lex.R;
 
 /**
  * Company will store the information of each individual company working with us.
@@ -15,10 +17,11 @@ public class Company {
      *websiteURL stores the main URL for the company's website
      *logoLocation stores the destination of the company logo
      */
+    private String publicKey;
     private String companyName = "";
     private String description = "";
     private String websiteURL = "";
-    private String logoLocation = "";
+    private int logo = R.drawable.alejandro;
     //add public key
 
     /**
@@ -31,36 +34,29 @@ public class Company {
      * Postcondition: Company object will be created.
      */
     public Company(String companyName, String description,
-                   String websiteURL)
-        {if (companyName != null && description != null && websiteURL != null)
-        {
+                   String websiteURL) {
+        if (companyName != null && description != null && websiteURL != null) {
             this.companyName = companyName;
             this.description = description;
             this.websiteURL = websiteURL;
         }
     }
 
-    /**
-     * Constructor, uses company name, description, and website url to build the
-     * Company object
-     * @param companyName name of the company
-     * @param description description of each company
-     * @param websiteURL url of the company's website
-     * Precondition: Strings need to be passed as non-null values.
-     * Postcondition: Company object will be created.
-     */
-    public Company(String companyName, String description,
-                   String websiteURL, String logoLocation)
+    public Company(String publicKey, String companyName, String description,
+                 int logo)
     {
-        {if (companyName != null && description != null && websiteURL != null
-            && logoLocation != null)
+        if (publicKey != null && companyName != null && description != null)
+        {
+            this.publicKey = publicKey;
             this.companyName = companyName;
             this.description = description;
-            this.websiteURL = websiteURL;
-            this.logoLocation = logoLocation;
         }
+        this.logo = logo;
     }
 
-    //methods to add
-    //getters
+    public int getLogo(){return logo;}
+
+    public String getPublicKey() {return publicKey;}
+
+    public String getCompanyName(){return companyName;}
 }
