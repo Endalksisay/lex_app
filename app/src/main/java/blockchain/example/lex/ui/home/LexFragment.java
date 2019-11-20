@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -49,13 +49,11 @@ public class LexFragment extends Fragment {
         for (int i = 0; i < tokenList.size(); i++) {
             final Token indToken = tokenList.get(i);
             LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
+
             Button btn = new Button(root.getContext());
             LinearLayout layout2 = new LinearLayout(root.getContext());
 
-            layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
             layout2.setOrientation(LinearLayout.HORIZONTAL);
             layout2.setBackgroundColor(Color.WHITE);
 
@@ -104,10 +102,16 @@ public class LexFragment extends Fragment {
             layout2.addView(tv1);
             layout2.addView(tv2);
 
+            layout2.setOnClickListener(view -> {
+                TokenFragment nextFrag= new TokenFragment(indToken);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.lex_fragment, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            });
 
-            layout2.setOnClickListener(view -> Toast.makeText(view.getContext(),
-                    indToken.getTokenName(), Toast.LENGTH_SHORT)
-                    .show());
+
+
         }
 
         return root;

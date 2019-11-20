@@ -8,15 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-
-import java.util.ArrayList;
 import java.util.Locale;
 
 import blockchain.example.lex.Model.Token;
@@ -29,12 +26,19 @@ public class TokenFragment extends Fragment {
     private Button currencyButton;
     private LexViewModel homeViewModel;
     private User testUser = new User();
+    private Token indToken;
+
+    public TokenFragment(Token indToken)
+    {
+        this.indToken = indToken;
+        User testUser = new User();
+        currentCurrency = 0;
+    }
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        ArrayList<Token> tokenList = testUser.getUserTokens();
         currentCurrency = testUser.getTotalTokenVal();
         homeViewModel =
                 ViewModelProviders.of(this).get(LexViewModel.class);
@@ -46,34 +50,21 @@ public class TokenFragment extends Fragment {
         String btnSetText = String.format(Locale.US, "Total Currency: %.2f", currentCurrency);
         currencyButton.setText(btnSetText);
 
-        for (int i = 0; i < tokenList.size(); i++) {
-            final Token indToken = tokenList.get(i);
+
             LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
             Button btn = new Button(root.getContext());
             LinearLayout layout2 = new LinearLayout(root.getContext());
             layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            layout2.setOrientation(LinearLayout.HORIZONTAL);
+            layout2.setOrientation(LinearLayout.VERTICAL);
             layout2.setBackgroundColor(Color.WHITE);
 
-            int left = 10;
-            int top = 15;
-            int right = 10;
-            int bottom = 15;
-
-            TableRow.LayoutParams parameters = new TableRow.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            parameters.setMargins(left, top, right, bottom);
-
-            layout2.setLayoutParams(parameters);
             layout2.setGravity(Gravity.CENTER);
 
-            layout2.setId(i);
+            layout2.setId(0);
 
-            btn.setId(i);
+            btn.setId(0);
             CircleImageView image = new CircleImageView(root.getContext());
-            image.setId(i);
+            image.setId(0);
 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(150, 150);
 
@@ -108,7 +99,6 @@ public class TokenFragment extends Fragment {
                     indToken.getTokenName(), Toast.LENGTH_SHORT)
                     .show());
 
-        }
 
         return root;
     }
