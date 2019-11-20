@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
             {
 
             loadingBar.setTitle("Create Account");
-            loadingBar.setMessage("Please wait, while we are checking the credentials");
+            loadingBar.setMessage("Please wait, while we check the credentials");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
