@@ -43,53 +43,20 @@ import androidx.core.view.GravityCompat;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
-
     private AppBarConfiguration mAppBarConfiguration;
-    private double currentCurrency = 0;
-    private Button currencyButton;
-    private Button btn1;
-    private ArrayList<Button> companyButtons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-//    currencyButton = findViewById(R.id.currency_button);
-//    String btnSetText = String.format(Locale.US, "$%.2f", currentCurrency);
-//        currencyButton.setText(btnSetText);
-//       for (int i = 1; i <= 20; i++) {
-//          LinearLayout linear = findViewById(R.id.companyButtonLayout);
-//           LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-//                  LinearLayout.LayoutParams.MATCH_PARENT,
-//                   LinearLayout.LayoutParams.WRAP_CONTENT);
-//            Button btn = new Button(this);
-//          btn.setId(i);
-//           final int id_ = btn.getId();
-//           String btnText = "button " + id_;
-//            btn.setText(btnText);
-//           linear.addView(btn, params);
-//           btn1 = (findViewById(id_));
-//           btn1.setOnClickListener(new View.OnClickListener() {
-//               public void onClick(View view) {
-//                   Toast.makeText(view.getContext(),
-//                          "Button clicked index = " + id_, Toast.LENGTH_SHORT)
-//                           .show();
-//               }
-//          });
-//       }
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         toolbar.setTitle("LEX");
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Refresh new contents.....", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(view -> Snackbar.make(view, "Refresh new contents.....", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -174,7 +141,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
 

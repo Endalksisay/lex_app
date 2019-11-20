@@ -39,12 +39,7 @@ public class MerchantsFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_merchants, container, false);
         final TextView textView = root.findViewById(R.id.text_merchants);
-        merchantsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        merchantsViewModel.getText().observe(this, s -> textView.setText(s));
 
         companyList = merchantsViewModel.getCompanylist();
 
@@ -104,13 +99,9 @@ public class MerchantsFragment extends Fragment {
             layout2.addView(tv1);
             layout2.addView(tv2);
 
-            layout2.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    Toast.makeText(view.getContext(),
-                            indCompany.getCompanyName(), Toast.LENGTH_SHORT)
-                            .show();
-                }
-            });
+            layout2.setOnClickListener(view -> Toast.makeText(view.getContext(),
+                    indCompany.getCompanyName(), Toast.LENGTH_SHORT)
+                    .show());
         }
         return root;
     }

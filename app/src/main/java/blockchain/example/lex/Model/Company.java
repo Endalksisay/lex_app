@@ -1,9 +1,5 @@
 package blockchain.example.lex.Model;
 
-
-
-import java.util.ArrayList;
-
 import blockchain.example.lex.R;
 
 /**

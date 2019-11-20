@@ -48,16 +48,7 @@ public class LoginActivity extends AppCompatActivity
         chkBoxRememeberMe = findViewById(R.id.remember_me_chkb);
         Paper.init(this);
 
-
-
-        LoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-
-                LoginUser();
-            }
-        });
+        LoginButton.setOnClickListener(view -> LoginUser());
     }
 
     private void LoginUser()
@@ -91,16 +82,10 @@ public class LoginActivity extends AppCompatActivity
     private void AllowAcceToAccount(final String phone, final String password)
     {
         if (chkBoxRememeberMe.isChecked())
-
-
-
         {
             Paper.book().write(Prevalent.UserPhoneKey, phone);
             Paper.book().write(Prevalent.UserPasswordKey, password);
-
         }
-
-
 
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -140,9 +125,7 @@ public class LoginActivity extends AppCompatActivity
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
     }
 }
