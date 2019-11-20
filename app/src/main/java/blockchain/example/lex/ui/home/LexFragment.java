@@ -21,6 +21,7 @@ import java.util.Locale;
 import blockchain.example.lex.Model.Token;
 import blockchain.example.lex.Model.User;
 import blockchain.example.lex.R;
+import blockchain.example.lex.ui.Send.SendFragment;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LexFragment extends Fragment {
@@ -47,11 +48,8 @@ public class LexFragment extends Fragment {
 
 
         for (int i = 0; i < tokenList.size(); i++) {
-            final Token indToken = tokenList.get(i);
+            Token indToken = tokenList.get(i);
             LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
             Button btn = new Button(root.getContext());
             LinearLayout layout2 = new LinearLayout(root.getContext());
 
@@ -108,7 +106,15 @@ public class LexFragment extends Fragment {
             layout2.setOnClickListener(view -> Toast.makeText(view.getContext(),
                     indToken.getTokenName(), Toast.LENGTH_SHORT)
                     .show());
+            layout2.setOnClickListener(v -> {
+                SendFragment nextFrag= new SendFragment(testUser, indToken);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.lex_fragment, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
+
 
         return root;
     }
