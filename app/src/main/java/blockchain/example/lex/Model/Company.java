@@ -1,5 +1,4 @@
 package blockchain.example.lex.Model;
-
 import blockchain.example.lex.R;
 
 /**
