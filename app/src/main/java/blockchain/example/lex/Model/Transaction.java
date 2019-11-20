@@ -1,10 +1,5 @@
 package blockchain.example.lex.Model;
 
-//Token name (or ID)
-//date stamp
-//sender pubkey
-//receiver pubkey
-
 import java.util.Date;
 
 /**
