@@ -199,4 +199,15 @@ public class Token {
     {
         this.logo = logo;
     }
+
+    public boolean reduceValue(double amount)
+    {
+        if (this.value < amount)
+            return false;
+        else
+        {
+            value -= amount;
+            return true;
+        }
+    }
 }

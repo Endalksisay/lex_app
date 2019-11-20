@@ -25,11 +25,23 @@ import blockchain.example.lex.ui.Send.SendFragment;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LexFragment extends Fragment {
-    private double currentCurrency = 0;
+    private double currentCurrency;
     private Button currencyButton;
     private LexViewModel homeViewModel;
 
-    private User testUser = new User();
+    private User testUser;
+
+    public LexFragment()
+    {
+        currentCurrency = 0;
+        testUser = new User();
+    }
+
+    public LexFragment(User u)
+    {
+        currentCurrency = 0;
+        testUser = u;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -102,12 +114,13 @@ public class LexFragment extends Fragment {
             layout2.addView(tv1);
             layout2.addView(tv2);
 
+            final int tokLoc = i;
 
             layout2.setOnClickListener(view -> Toast.makeText(view.getContext(),
                     indToken.getTokenName(), Toast.LENGTH_SHORT)
                     .show());
             layout2.setOnClickListener(v -> {
-                SendFragment nextFrag= new SendFragment(testUser, indToken);
+                SendFragment nextFrag= new SendFragment(testUser, tokLoc);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.lex_fragment, nextFrag, "findThisFragment")
                         .addToBackStack(null)
