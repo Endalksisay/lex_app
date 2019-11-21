@@ -55,7 +55,7 @@ public class SendFragment extends Fragment {
 
 
         TextView sendingFrom = root.findViewById(R.id.sending_account);
-        sendingFrom.setText(indUser.getName());
+        sendingFrom.setText(indUser.getPhone());
 
         TextView sendAmount = root.findViewById(R.id.amount_transfer);
         TextView confirmAmount = root.findViewById(R.id.amount_confirm);
