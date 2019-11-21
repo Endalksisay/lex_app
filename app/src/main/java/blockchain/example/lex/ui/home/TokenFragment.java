@@ -43,7 +43,7 @@ public class TokenFragment extends Fragment {
         homeViewModel.getText().observe(this, s -> textView.setText(s));
 
         currencyButton = root.findViewById(R.id.currency_button);
-        String btnSetText = String.format(Locale.US, "Total Currency: %.2f", currentCurrency);
+        String btnSetText = String.format(Locale.US, "%.2f LEX", currentCurrency);
         currencyButton.setText(btnSetText);
 
         for (int i = 0; i < tokenList.size(); i++) {

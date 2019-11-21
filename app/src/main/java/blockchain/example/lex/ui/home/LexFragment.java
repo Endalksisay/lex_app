@@ -43,7 +43,7 @@ public class LexFragment extends Fragment {
         homeViewModel.getText().observe(this, s -> textView.setText(s));
 
         currencyButton = root.findViewById(R.id.currency_button);
-        String btnSetText = String.format(Locale.US, "Total Currency: %.2f", currentCurrency);
+        String btnSetText = String.format(Locale.US, "%.2f  LEX", currentCurrency);
         currencyButton.setText(btnSetText);
 
 
@@ -52,10 +52,13 @@ public class LexFragment extends Fragment {
             LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
             Button btn = new Button(root.getContext());
             LinearLayout layout2 = new LinearLayout(root.getContext());
+            ba
 
             layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             layout2.setOrientation(LinearLayout.HORIZONTAL);
             layout2.setBackgroundColor(Color.WHITE);
+
+
 
             int left = 10;
             int top = 15;

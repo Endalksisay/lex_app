@@ -10,7 +10,7 @@ public class LexViewModel extends ViewModel {
 
     public LexViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Lex Fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {
