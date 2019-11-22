@@ -64,7 +64,6 @@ public class LexFragment extends Fragment {
             LinearLayout linear = root.findViewById(R.id.companyButtonLayout);
             Button btn = new Button(root.getContext());
             LinearLayout layout2 = new LinearLayout(root.getContext());
-            ba
 
             layout2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             layout2.setOrientation(LinearLayout.HORIZONTAL);
